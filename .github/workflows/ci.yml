@@ -30,3 +30,13 @@ jobs:
     - name: Run Hello World program
       run: |
         python main.py
+
+    - name: Run test to check output 
+      run: |
+        output=$(python main.py)
+        if [ "$output" != "Hello" ]; then
+          echo "Test failed: Expected 'Hello', but got '$output'"
+          exit 1
+        else
+          echo "Test passed: '$output' is correct"
+        fi
